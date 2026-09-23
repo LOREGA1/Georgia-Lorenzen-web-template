@@ -74,14 +74,11 @@
 
         <article class="introduction">
             <h2>
-                My Website - Contact
+                Get in touch with wear this.
             </h2>
             <p>
-                Please send your message below.
+                For any inquiries please fill out the contact form below.
             </p>
-            <a href="#" class="readmore-button">
-                Continue reading &hellip;
-            </a>
         </article>
 
         <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -93,37 +90,41 @@
         <form name="contact" method="POST" data-netlify="true" class="contact-form" action="/contact-success.html">
             <input type="hidden" name="form-name" value="contact">
 
-            <h3 class="contact-form__heading">Contact me</h3>
+            <h3 class="contact-form__heading">Contact form</h3>
             <p class="contact-form__name">
                 <label>Your Name: </label><br><input type="text" name="name" placeholder="Name" required autofocus />
             </p>
             <p class="contact-form__email">
                 <label>Your Email: </label><br><input type="email" name="email" placeholder="Email" required />
             </p>
-            <p class="contact-form__preference">
-                <label>What do you think of this website: </label><br><select name="prefernce[]"
+            <p class="contact-form__phone-number">
+                <label>Your mobile number: </label><br><input type="phone-number" name="phone-number" placeholder="+64" required />
+            </p>
+            <p class="contact-form__experience">
+                <label>How was your experience using this websit?: </label><br><select name="experience[]"
                     placeholder="Select from list">
-                    <option value="like">I like it!</option>
-                    <option value="dislike">Hmmm... could do with some work</option>
+                    <option value="5">Excellent</option>
+                    <option value="4">Good</option>
+                     <option value="3">Okay</option>
+                     <option value="2">Bad</option>
+                    <option value="1">Very bad</option> 
                 </select>
             </p>
             <p class="contact-form__message">
                 <label>Message: </label><br><textarea name="message" rows="7" cols="60"
                     placeholder="Type your message. . ."></textarea>
             </p>
-            <p class="contact-form__browser">
-                <label>What browser are you using?</label><br>
-                <input list="browsers" placeholder="Click here to choose from list...">
-                <datalist id="browsers">
-                    <option value="Internet Explorer">
-                    <option value="Firefox">
-                    <option value="Chrome">
-                    <option value="Opera">
-                    <option value="Safari">
+            <p class="contact-form__contact-preference">
+                <label>How would you prefer to be contacted?</label><br>
+                <input list="email/phone-number" placeholder="Click here to choose from list...">
+                <datalist id="email/phone-number">
+                    <option value="Email">
+                    <option value="Mobile number">
+                    <option value="Either">
                 </datalist>
             </p>
             <p class="contact-form__submit">
-                <button type="submit">Send</button>
+                <button type="submit">Submit</button>
             </p>
         </form>
 

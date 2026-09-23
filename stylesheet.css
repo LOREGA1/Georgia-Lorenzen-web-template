@@ -32,9 +32,9 @@
     --light-text: #fcfcfa;
     --cream-text: #f6ead0;
     --medium-dark-text: #055723;
-    --main-background: #F2C230;
-    --header-background: #F2E5A2;
-    --intro-background: #F29F05;
+    --main-background: green;
+    --header-background: #dfd7ad;
+    --intro-background: aqua;
     --dark-background: #002F15;
     --portrait-background: #e06c10;
     --landscape-background: #F23A29;
@@ -42,7 +42,7 @@
     --button-colour: #402320;
     --dark-green: #13632e;
     --slide-out-menu-background: rgba(233, 240, 234, 0.93);
-    --footer-background: #73645C;
+    --footer-background: #dfd7ad;
     --off-white: #fcfcf5;
     --description-text: #8c8e8d;
     --description-text-colour: #fcfcfa;
@@ -695,7 +695,7 @@ header {
 footer {
     background-color: var(--footer-background);
     padding: 2rem;
-    color: var(--off-white);
+    color: var(--dark-text);
 }
 
 footer p {
@@ -725,7 +725,7 @@ ul.footer__menu__list {
 
 ul.footer__menu__list li a {
     text-decoration: none;
-    color: var(--off-white);
+    color: var(--medium-dark-text);
 }
 
 ul.footer__menu__list li a:hover {
