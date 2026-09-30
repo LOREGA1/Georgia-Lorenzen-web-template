@@ -1,7 +1,7 @@
 /*  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-  Author: Your name here
-  Date: creation date
+  Author: Georgia Lorenzen
+  Date: 29/09/2026
 
   CONTENTS:
   ________
@@ -21,49 +21,55 @@
 
   (to jump to any section of the Contents, use the section number (e.g. 002) in 'Find', Cmd-F) */
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-  
-      001.  COLOUR
-  
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+/* = = = 001.  COLOUR = = = */
 
 :root {
-    --dark-text: #13381f;
-    --light-text: #fcfcfa;
-    --cream-text: #f6ead0;
-    --medium-dark-text: #055723;
-    --main-background: green;
-    --header-background: #dfd7ad;
-    --intro-background: aqua;
-    --dark-background: #002F15;
-    --portrait-background: #e06c10;
-    --landscape-background: #F23A29;
-    --dark-border-colour: #08331c;
-    --button-colour: #402320;
-    --dark-green: #13632e;
-    --slide-out-menu-background: rgba(233, 240, 234, 0.93);
-    --footer-background: #dfd7ad;
-    --off-white: #fcfcf5;
-    --description-text: #8c8e8d;
-    --description-text-colour: #fcfcfa;
-    --light-silver: #fcfcfa;
+    /* Your palette */
+    --cream: #f3efed;
+    --butter: #fdeeb8;
+    --sky: #c3dae8;
+    --burgundy: #4d151a;
+    --ink: #280f10;
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+        /* Side spacing: --edge is for the logo and footer, --nav-edge is the gap on the right of the menu,
+       --gutter sits the hero text and trending section in a little further than the logo */
+    --edge: clamp(1.25rem, 4vw, 4rem);
+    --gutter: max(calc(var(--edge) + 1.5rem), calc((100% - 1200px) / 2 + 1.5rem));
+
+    /* Old variable names from the template, mapped to your palette */
+    --dark-text: var(--ink);
+    --light-text: var(--cream);
+    --cream-text: var(--cream);
+    --medium-dark-text: var(--burgundy);
+    --main-background: var(--cream);
+    --header-background: var(--cream);
+    --intro-background: var(--cream);
+    --dark-background: var(--ink);
+    --portrait-background: var(--burgundy);
+    --landscape-background: var(--burgundy);
+    --dark-border-colour: var(--ink);
+    --button-colour: var(--burgundy);
+    --dark-green: var(--burgundy);
+    --slide-out-menu-background: var(--cream);
+    --footer-background: var(--burgundy);
+    --off-white: var(--cream);
+    --description-text: var(--ink);
+    --description-text-colour: var(--cream);
+    --light-silver: #ffffff;
 }
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-  
-      002.  GENERAL STYLES
-  
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+/* = = = 002.  GENERAL STYLES = = = */
 
 body {
-    font-family:  'Space Grotesk', sans-serif;
-    font-family: "Space Grotesk", sans-serif;
-    font-optical-sizing: auto;
+    font-family: var(--font-body);
     font-weight: 400;
-    font-style: normal;
-    color: #1d1d1b;
-    font-size: 1.2rem;
-    background-color: #97c8e3;
+    color: var(--ink);
+    font-size: 1.1rem;
+    background-color: var(--cream);
 }
 
 img {
@@ -82,17 +88,19 @@ img {
     padding: 0;
 }
 
-/* This is the main content container for all pages - max width 1200px, or 75rem*/
+/* Main content container: now full width so the coloured bands reach the edges */
 main {
-    max-width: 1200px;
     background-color: var(--main-background);
-    margin: 0 auto;
-    /* The line above makes the container centred within the page */
+}
+
+h1,
+h2 {
+    font-family: var(--font-heading);
 }
 
 .external-link {
     text-decoration: underline;
-    color: var(--cream-text);
+    color: var(--burgundy);
 }
 
 .grid-heading {
@@ -101,52 +109,48 @@ main {
     margin-left: 2rem;
 }
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-  
-    003.  HEADER
-  
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+/* = = = 003.  HEADER = = = */
 
 header {
-    position: relative; /* <-- needed so .icon anchors to the header, not the page */
-    max-width: 1200px;
-    margin: 0 auto;
+    position: relative; /* so the hamburger icon anchors to the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--header-background);
-    padding: 2rem 0 2rem 2rem;
-    min-height: 7rem;
+    padding: 1.5rem calc(var(--edge) - 0.6rem) 1.5rem var(--edge);
+    min-height: 6rem;
 }
 
+/* .logo is the link on the home page; "header h1" keeps your other pages working until you update them */
+.logo,
 header h1 {
-    color: var(--dark-text);
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--burgundy);
+    text-decoration: none;
 }
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-  
-    004.  NAVIGATION MENU
-  
-    = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
-
-header {
-    position: relative; /* anchors .icon to the header, not the page */
-}
+/* = = = 004.  NAVIGATION MENU = = = */
 
 .topnav {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
-    gap: 0.5rem 2rem;
-    width: 100%;
+    justify-content: flex-end;
+    gap: 0.5rem 1.5rem;
 }
 
 .topnav a {
-    color: #000;
+    color: var(--ink);
     text-decoration: none;
     font-size: 1.15rem;
+    padding: 0.2rem 0.6rem;
+    border-bottom: 3px solid transparent;
+    transition: border-color .3s;
 }
 
 .topnav a:hover {
-    text-decoration: underline;
+    border-bottom-color: var(--butter);
 }
 
 .topnav a.current-page {
@@ -163,14 +167,14 @@ header {
     outline: none;
     cursor: pointer;
     padding: 0;
-    color: #000;
+    color: var(--ink);
     font-size: 2rem;
 }
 
 /* First breakpoint */
 @media screen and (max-width: 600px) {
     header {
-        padding: 2rem 0 2rem 1rem;
+        padding: 1.5rem 1rem;
         min-height: 4rem;
     }
 
@@ -189,10 +193,10 @@ header {
         position: absolute;
         top: 0;
         right: 0;
-        width: 40vw;
-        margin-top: 0;
+        width: 50vw;
         padding: 6rem 2rem 4rem 2rem;
-        background-color: beige;
+        background-color: var(--butter);
+        z-index: 10;
     }
 
     .topnav.responsive a {
@@ -203,86 +207,124 @@ header {
 
 /* Second breakpoint */
 @media screen and (max-width: 400px) {
+    .logo,
     header h1 {
-        max-width: 18.75rem;
-        line-height: 100%;
-    }
-
-    header {
-        padding-bottom: 2rem;
+        font-size: 1.8rem;
     }
 }
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-  
-    005.  INTRO BANNER AT TOP OF PAGE
-  
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
 
-.introduction {
-    background-color: var(--intro-background);
-    padding: 2rem;
+/* = = = 005.  HERO (replaces the intro banner) = = = */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 24rem;
+    background-color: var(--cream);
 }
 
-.introduction h2 {
-    color: var(--dark-text);
-    font-weight: 400;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+.hero__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 3rem 2rem 3rem var(--gutter);
 }
 
-.introduction p {
-    color: var(--dark-text);
-    font-weight: 300;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+.hero__text h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.hero__text p {
+    font-size: 1.3rem;
+    max-width: 22rem;
+}
+
+.hero__image img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
 .readmore-button {
-    background-color: var(--button-colour);
-    border: none;
-    color: var(--off-white);
-    padding: 7px 20px;
-    text-align: center;
+    background-color: var(--burgundy);
+    color: var(--cream);
+    padding: 0.7rem 1.5rem;
     text-decoration: none;
     display: inline-block;
     font-size: 1rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-    transition: all .3s;
-    border-radius: 5px;
+    transition: background-color .3s, color .3s;
+    border-radius: 3px;
 }
 
 .readmore-button:hover {
-    background-color: var(--button-colour);
-    color: var(--cream-text);
-    box-shadow: none;
+    background-color: var(--ink);
+    color: var(--butter);
 }
 
-.readmore-button:active {
-    box-shadow: inset 0 2px 15px rgba(0, 0, 0, .3);
+.readmore-button:focus-visible,
+.topnav a:focus-visible,
+.trending__item:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
 }
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-  
-    006.  FLICKITY CAROUSEL
-  
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+@media screen and (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
 
-.carousel-section .caption {
-    background: #FAFAFA;
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-    color: #524d49;
-    font-size: .8rem;
-    font-weight: 200;
-    font-family: var(--typeface-open-sans);
-    font-style: italic;
+    .hero__text {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .hero__text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero__image img {
+        height: 18rem;
+    }
 }
 
-.carousel-cell {
-    width: 100%;
+/* = = = 006.  TRENDING STYLES (replaces the Flickity carousel) = = = */
+
+.trending {
+    background-color: var(--sky);
+    padding: 2.5rem var(--gutter) 4rem;
+}
+
+.trending h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+}
+
+.trending__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 2rem;
+}
+
+.trending__item {
+    display: block;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.trending__item img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.trending__item:hover img {
+    transform: scale(1.05);
 }
 
 /* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -534,268 +576,178 @@ header {
     background-color: var(--dark-text);
 }
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
   
     011.  CONTACT FORM
   
-    = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
 
-/*  Here is the Contact Form arranged in two columns
-    A dot denotes a blank space, so the elements on those rows are left-aligned */
-
-@supports (display: grid) {
-    .contact-form {
-        display: grid;
-        gap: 1.5rem;
-        grid-auto-columns: 1fr 1fr;
-        grid-template-areas:
-            'contact-heading .'
-            'contact-name contact-email'
-            'contact-pref .'
-            'contact-message .'
-            'contact-browser .'
-            'contact-submit .';
-        padding-block: 2rem;
-        width: min(95%, 70rem);
-        margin-inline: auto;
-    }
+.contact-section {
+    background-color: var(--sky);
+    padding: 5rem var(--edge);
 }
 
-/*  For mobile device widths, elements are stacked in a single column */
-@media screen and (max-width: 1040px) {
-    .contact-form {
-        display: grid;
-        grid-auto-columns: 1fr;
-        grid-template-areas:
-            'contact-heading'
-            'contact-name'
-            'contact-email'
-            'contact-pref'
-            'contact-message'
-            'contact-browser'
-            'contact-submit';
-        margin-left: 1rem;
-    }
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-        width: 20rem;
-    }
+.contact-section__inner {
+    max-width: 44rem;
+    margin: 0 auto;
 }
 
-/*  For mobile device widths, elements are stacked in a single column */
-@media screen and (max-width: 600px) {
-
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-        max-width: 90dvw;
-    }
-}
-
-.contact-form__heading {
-    grid-area: contact-heading;
-    color: var(--dark-text);
+.contact-section h1 {
+    font-size: 3rem;
     font-weight: 400;
-    font-size: 2.6rem;
+    text-align: center;
+    color: var(--ink);
+}
+
+.contact-intro {
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 1rem 0 3rem;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.25rem;
 }
 
 .contact-form label {
-    min-width: 100rem;
-}
-
-.contact-form h3,
-.contact-form p {
-    color: var(--dark-text);
-    font-weight: 500;
-}
-
-.contact-form__name {
-    grid-area: contact-name;
-}
-
-.contact-form__email {
-    grid-area: contact-email;
-}
-
-.contact-form__preference {
-    grid-area: contact-pref;
-}
-
-.contact-form__message {
-    grid-area: contact-message;
-}
-
-.contact-form__browser {
-    grid-area: contact-browser;
-}
-
-.contact-form__submit {
-    grid-area: contact-submit;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
 }
 
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
-    border: none;
+    display: block;
+    width: 100%;
+    border: 2px solid transparent;
     border-radius: 5px;
+    padding: 0.8rem 1.2rem;
+    font-family: var(--font-body);
     font-size: 1rem;
-    padding: 0 1.4rem;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-    background-color: var(--light-silver);
-    color: var(--dark-text);
+    background-color: var(--butter);
+    color: var(--ink);
+    transition: background-color .3s, border-color .3s;
 }
 
-.contact-form .contact-form__message textarea {
-    padding-top: .8rem;
-    width: 30rem;
+.contact-form input:not(:placeholder-shown),
+.contact-form textarea:not(:placeholder-shown) {
+    background-color: var(--cream);
 }
 
-.contact-form input,
-.contact-form select {
-    height: 2.8rem;
-    width: 30rem;
+.contact-form select:invalid {
+    color: rgba(40, 15, 16, 0.6);
+}
+
+.contact-form select:valid {
+    background-color: var(--cream);
+    color: var(--ink);
+}
+
+.contact-form select option {
+    color: var(--ink);
+}
+
+.contact-form textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(40, 15, 16, 0.6);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--burgundy);
+}
+
+.contact-form__submit {
+    margin-top: 1rem;
 }
 
 .contact-form__submit button {
-    background-color: var(--button-colour);
+    background-color: var(--burgundy);
+    color: var(--cream);
     border: none;
-    color: var(--off-white);
-    padding: 7px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.2rem;
+    padding: 0.8rem 1.8rem;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    border-radius: 3px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-    transition: all .3s;
-    border-radius: 5px;
+    transition: background-color .3s, color .3s;
+}
+
+.contact-form input:-webkit-autofill,
+.contact-form input:-webkit-autofill:hover,
+.contact-form input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--cream) inset;
+    -webkit-text-fill-color: var(--ink);
+    caret-color: var(--ink);
+}
+
+.contact-form select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23280f10' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.2rem center;
+    background-size: 0.8rem;
+    padding-right: 3rem;
 }
 
 .contact-form__submit button:hover {
-    color: var(--cream-text);
-    box-shadow: none;
-}
-
-.contact-form__submit button:active {
-    box-shadow: inset 0 2px 15px rgba(0, 0, 0, .3);
+    background-color: var(--ink);
+    color: var(--butter);
 }
 
 .success-page {
     margin: 5dvw;
 }
 
-/* = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-  
-    012.  WEBSITE FOOTER
-  
-= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = */
+/* = = = 012.  WEBSITE FOOTER = = = */
 
-footer {
-    background-color: var(--footer-background);
-    padding: 2rem;
-    color: var(--dark-text);
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 3rem;
+    background-color: var(--burgundy);
+    color: var(--cream);
+    padding: 5rem var(--edge) 1.5rem;
 }
 
-footer p {
-    font-size: .8rem;
-}
-
-@supports (display: grid) {
-    .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        grid-gap: 2rem;
-    }
-}
-
-.footer__menu {
-    padding: 2rem;
-}
-
-.footer__menu__heading {
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-ul.footer__menu__list {
-    list-style-type: none;
-}
-
-ul.footer__menu__list li a {
+.footer__logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--cream);
     text-decoration: none;
-    color: var(--medium-dark-text);
+    transition: color .3s;
 }
 
-ul.footer__menu__list li a:hover {
-    text-decoration: underline;
+.footer__logo:hover {
+    color: var(--butter);
 }
 
-.footer__copyright-details p {
-    font-size: .8rem;
-    font-weight: 200;
-    font-style: italic;
+.footer__social {
+    display: flex;
+    gap: 1rem;
 }
 
-/* *********************
-    FOOTER MEDIA QUERIES
-   ********************* */
-
-/* Max width 1120px or 70rem */
-@media screen and (max-width: 1120px) {
-    .footer-grid {
-        grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
-    }
-
-    .footer__menu {
-        padding: 0;
-    }
-
-    footer p {
-        font-size: 1rem;
-    }
+.footer__social img {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
 }
 
-@media screen and (max-width: 600px) {
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        margin-bottom: 2rem;
-    }
-
-    .footer__menu {
-        padding: 0;
-    }
-
-    footer p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
+.footer__legal {
+    flex: 1;
+    min-width: 16rem;
+    font-size: 0.8rem;
+    font-weight: 300;
 }
-
-@media screen and (max-width: 300px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* = = =   E N D   O F   T H E   C S S  = = = */
-
-/* *********************
-    CSS BREAKPOINTS
-   ********************* */
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
